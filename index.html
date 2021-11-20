@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Weather Dashboard</title>
+</head>
+
+<body>
+  <div class="container-fluid header p-2">
+    <div class="row m-1">
+      <header class="col text-center">
+        <h1> Weather Dashboard</h1>
+      </header>
+    </div>
+  </div>
+
+
+  <main>
+    <!-- Main content starts here -->
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Search Session -->
+        <div class="col-auto p-2">
+          <div class="container">
+            <div class="row-col-1">
+              <!-- Search  -->
+              <div class="col border-bottom p-3">
+                <h2 class="search-header text-uppercase">Search for a City:</h2>
+                <form>
+                  <div class="form-group row">
+                    <div class="col">
+                      <input type="search" class="form-control" id="search" placeholder="">
+                    </div>
+                  </div>
+                  <div class="">
+                    <div class="">
+                      <button id="0" type="submit" class="btn d-block btn btn-primary btn-lg btn-block">Search</button>
+                    </div>
+                  </div>
+                </form>
+                </br>
+              </div>
+              <!-- Search cities buttons -->
+              <div class="col pt-5">
+                <button id="1" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block">Austin</button>
+                <button id="2" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block">Chicago</button>
+                <button id="3" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block">New York</button>
+                <button id="4" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block">Orlando</button>
+                <button id="5" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block">San
+                  Francisco</button>
+                <button id="6" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block">Seattle</button>
+                <button id="7" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block">Denver</button>
+                <button id="8" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block">Atlanta</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END Search Session -->
+
+        <!-- Result Session -->
+        <div class="col p-4">
+          <!-- Current weather  -->
+          <div class="container-fluid">
+            <div class="row border border-secondary">
+              <div class="col py-3">
+                <h2 class="current-city">Atlanta 3/30/2021</h2>
+                <p id="temp">Temp:<span></span></p>
+                <p id="wind">Wind:<span></span></p>
+                <p id="Humidity">Humidity:<span></span></p>
+                <p id="uv">UV Index:<span></span></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- END Current weather  -->
+          <!-- START 5-days forecast -->
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12 pt-5">
+                <h2 class="forecast">5-Day Forecast</h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="card-deck col-12">
+                <!-- day 1 start -->
+                <div class="card bg-dark text-light p-3">
+                  <div class="card-block">
+                    <h4 class="date card-title text-light">
+                      <span></span>
+                    </h4>
+                    <p id="icon"></p>
+                    <p id="temp">Temp:<span></span></p>
+                    <p id="wind">Wind:<span></span></p>
+                    <p id="Humidity">Humidity:<span></span></p>
+                  </div>
+                </div>
+                <!-- END day 1 -->
+                <!-- day 2 start -->
+                <div class="card bg-dark text-light p-3">
+                  <div class="card-block">
+                    <h4 class="date card-title text-light">
+                      <span></span>
+                    </h4>
+                    <p id="icon"></p>
+                    <p id="temp">Temp:<span></span></p>
+                    <p id="wind">Wind:<span></span></p>
+                    <p id="Humidity">Humidity:<span></span></p>
+                  </div>
+                </div>
+                <!-- END day 2 -->
+                <!-- day 3 start -->
+                <div class="card bg-dark text-light p-3">
+                  <div class="card-block">
+                    <h4 class="date card-title text-light">
+                      <span></span>
+                    </h4>
+                    <p id="icon"></p>
+                    <p id="temp">Temp:<span></span></p>
+                    <p id="wind">Wind:<span></span></p>
+                    <p id="Humidity">Humidity:<span></span></p>
+                  </div>
+                </div>
+                <!-- END day 3 -->
+                <!-- day 4 start -->
+                <div class="card bg-dark text-light p-3">
+                  <div class="card-block">
+                    <h4 class="date card-title text-light">
+                      <span></span>
+                    </h4>
+                    <p id="icon"></p>
+                    <p id="temp">Temp:<span></span></p>
+                    <p id="wind">Wind:<span></span></p>
+                    <p id="Humidity">Humidity:<span></span></p>
+                  </div>
+                </div>
+                <!-- END day 4 -->
+                <!-- day 5 start -->
+                <div class="card bg-dark text-light p-3">
+                  <div class="card-block">
+                    <h4 class="date card-title text-light">
+                      <span></span>
+                    </h4>
+                    <p id="icon"></p>
+                    <p id="temp">Temp:<span></span></p>
+                    <p id="wind">Wind:<span></span></p>
+                    <p id="Humidity">Humidity:<span></span></p>
+                  </div>
+                </div>
+                <!-- END day 5 -->
+              </div>
+              <!-- END of card-deck -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
