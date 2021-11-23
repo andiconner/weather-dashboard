@@ -32,17 +32,9 @@
               <!-- Search  -->
               <div class="col border-bottom p-3">
                 <h2 class="search-header text-uppercase">Search for a City:</h2>
-                <form>
-                  <div class="form-group row">
-                    <div class="col">
-                      <input type="search" class="form-control" id="search" placeholder="">
-                    </div>
-                  </div>
-                  <div class="">
-                    <div class="">
-                      <button id="0" type="submit" class="btn d-block btn btn-primary btn-lg btn-block">Search</button>
-                    </div>
-                  </div>
+                <form id="search-form">
+                  <input type="text" class="form-control" id="cityname" placeholder="">
+                  <button type="submit" id="submit"  class="btn d-block btn btn-primary btn-lg btn-block">Search</button>
                 </form>
                 </br>
               </div>
@@ -69,17 +61,21 @@
           <div class="container-fluid">
             <div class="row border border-secondary">
               <div class="col py-3">
-                <h2 class="current-city">Atlanta 3/30/2021</h2>
-                <p id="temp">Temp:<span></span></p>
-                <p id="wind">Wind:<span></span></p>
-                <p id="Humidity">Humidity:<span></span></p>
-                <p id="uv">UV Index:<span></span></p>
+                <h2><span id="city-search-term"></span></h2>
+                <div id="weather-container" class="conditions-group">
+                  <div id="current-conditions" class="conditions-list">
+                    <p id="icon"><spsn></spsn></p>
+                    <p id="temp"><span></span></p>
+                    <p id="wind"><span></span></p>
+                    <p id="Humidity"><span></span></p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <!-- END Current weather  -->
-          <!-- START 5-days forecast -->
+          <!-- START Future Weather -->
           <div class="container-fluid">
             <div class="row">
               <div class="col-12 pt-5">
@@ -94,10 +90,10 @@
                     <h4 class="date card-title text-light">
                       <span></span>
                     </h4>
-                    <p id="icon"></p>
-                    <p id="temp">Temp:<span></span></p>
-                    <p id="wind">Wind:<span></span></p>
-                    <p id="Humidity">Humidity:<span></span></p>
+                    <p id="icon1"></p>
+                    <p id="temp1">Temp:<span></span></p>
+                    <p id="wind1">Wind:<span></span></p>
+                    <p id="Humidity1">Humidity:<span></span></p>
                   </div>
                 </div>
                 <!-- END day 1 -->
@@ -107,10 +103,10 @@
                     <h4 class="date card-title text-light">
                       <span></span>
                     </h4>
-                    <p id="icon"></p>
-                    <p id="temp">Temp:<span></span></p>
-                    <p id="wind">Wind:<span></span></p>
-                    <p id="Humidity">Humidity:<span></span></p>
+                    <p id="icon2"></p>
+                    <p id="temp2">Temp:<span></span></p>
+                    <p id="wind2">Wind:<span></span></p>
+                    <p id="Humidity2">Humidity:<span></span></p>
                   </div>
                 </div>
                 <!-- END day 2 -->
@@ -120,10 +116,10 @@
                     <h4 class="date card-title text-light">
                       <span></span>
                     </h4>
-                    <p id="icon"></p>
-                    <p id="temp">Temp:<span></span></p>
-                    <p id="wind">Wind:<span></span></p>
-                    <p id="Humidity">Humidity:<span></span></p>
+                    <p id="icon3"></p>
+                    <p id="temp3">Temp:<span></span></p>
+                    <p id="wind3">Wind:<span></span></p>
+                    <p id="Humidity3">Humidity:<span></span></p>
                   </div>
                 </div>
                 <!-- END day 3 -->
@@ -133,10 +129,10 @@
                     <h4 class="date card-title text-light">
                       <span></span>
                     </h4>
-                    <p id="icon"></p>
-                    <p id="temp">Temp:<span></span></p>
-                    <p id="wind">Wind:<span></span></p>
-                    <p id="Humidity">Humidity:<span></span></p>
+                    <p id="icon4"></p>
+                    <p id="temp4">Temp:<span></span></p>
+                    <p id="wind4">Wind:<span></span></p>
+                    <p id="Humidity4">Humidity:<span></span></p>
                   </div>
                 </div>
                 <!-- END day 4 -->
@@ -146,10 +142,10 @@
                     <h4 class="date card-title text-light">
                       <span></span>
                     </h4>
-                    <p id="icon"></p>
-                    <p id="temp">Temp:<span></span></p>
-                    <p id="wind">Wind:<span></span></p>
-                    <p id="Humidity">Humidity:<span></span></p>
+                    <p id="icon5"></p>
+                    <p id="temp5">Temp:<span></span></p>
+                    <p id="wind5">Wind:<span></span></p>
+                    <p id="Humidity5">Humidity:<span></span></p>
                   </div>
                 </div>
                 <!-- END day 5 -->
@@ -162,6 +158,7 @@
     </div>
   </main>
 
+  
   <script src="./assets/js/script.js"></script>
 </body>
 
