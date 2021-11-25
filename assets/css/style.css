@@ -2,3 +2,16 @@
     background-image:linear-gradient(to left, #02024b, #28a1ba);
     color: white;
 }
+
+#current-weather {
+    background-image:linear-gradient(to left, #02024b, #28a1ba);
+    color: white;
+}
+
+.submit {
+    background-color: #02024b;
+    color: white;
+}
+.submit:hover{
+    background-color: #28a1ba;
+}

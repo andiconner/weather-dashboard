@@ -14,7 +14,7 @@ If there is in fact a value to cityname, we pass that data to getCurrentCity() a
 
 We have to capture a user interaction, form an HTTP request from that interaction, and display the response data on the page. Study the response data so that we can identify the properties we want to use.
 
-Create a new function called "displayCurrentWeather"
+
 
 3. weather conditions presented with colors => favorable, moderate or severe.
 
