@@ -1,7 +1,9 @@
+
 // new variables to store a reference to the <form>
 var searchFormEl = document.querySelector("#search-form");
 var cityInputEl = document.querySelector("#cityname");
 var submitBtn = document.querySelector('#submit')
+var cityList = document.querySelector('#cityList')
 
 
 
@@ -14,7 +16,8 @@ var input = document.querySelector('.input_text');
 var cardDeckEl = document.querySelector(".card-deck")
 var buttonsEl = document.querySelector("#buttons")
 
-
+var cityList =[]
+var searchTerms = []
 
 
 
@@ -49,37 +52,51 @@ var displayCity = function (city, searchTerm, fiveDayData) {
    </div>
     
     `
-    cardDeckEl.innerHTML = "" //need this so it won't repeat
-    for (let i = 1; i < fiveDayData.daily.length - 2; i++) {
+        cardDeckEl.innerHTML = "" //need this so it won't repeat
+        for (let i = 1; i < fiveDayData.daily.length - 2; i++) {
         cardDeckEl.innerHTML = cardDeckEl.innerHTML + `
-    <div class="card bg-dark text-light p-3">
-    <div class="card-block">
-      <h4 class="date card-title text-light">
-        <span>${moment(fiveDayData.daily[i].dt, 'X').format('MM/DD/YYYY')}</span>
-      </h4>
-      <img src='http://openweathermap.org/img/wn/${fiveDayData.daily[i].weather[0].icon}.png'  />
-      <p id="temp1">Temp:<span>${fiveDayData.daily[i].temp.day}</span></p>
-      <p id="wind1">Wind:<span>${fiveDayData.daily[i].wind_speed}</span></p>
-      <p id="Humidity1">Humidity:<span>${fiveDayData.daily[i].humidity}</span></p>
+        <div class="card text-light p-3">
+        <div class="card-block">
+        <h4 class="date card-title text-light">
+            <span>${moment(fiveDayData.daily[i].dt, 'X').format('MM/DD/YYYY')}</span>
+        </h4>
+        <img src='http://openweathermap.org/img/wn/${fiveDayData.daily[i].weather[0].icon}.png'  />
+        <p id="temp1">Temp:<span>${fiveDayData.daily[i].temp.day}</span></p>
+        <p id="wind1">Wind:<span>${fiveDayData.daily[i].wind_speed}</span></p>
+        <p id="Humidity1">Humidity:<span>${fiveDayData.daily[i].humidity}</span></p>
+        </div>
     </div>
-  </div>
-  
-    `
-             // save history search function and storage in localStorage 
-             localStorage.setItem("searchTerm", JSON.stringify(searchTerm));
-             
-            buttonsEl.innerHTML = "" //need this so it won't repeat
-            
-            buttonsEl.innerHTML = buttonsEl.innerHTML + `
-            <button data-id="2" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block"><span>${city.name}</span></button>
-            <button data-id="3" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block"><span>${city.name}</span></button>
-            <button data-id="4" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block"><span>${city.name}</span></button>
-            <button data-id="5" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block"><span>${city.name}</span></button>
-            `
-            
-    }
-}
+    
+    `   
+    }         
 
+    // save history search function and storage in localStorage 
+        localStorage.setItem("searchTerm", searchTerm);
+    
+    
+        buttonsEl.innerHTML=""
+        for (let i = 0; i < searchTerm.length; i++) {
+            
+        buttonsEl.innerHTML=buttonsEl.innerHTML+ `
+        <button data-id="2" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block"><span>${city.name}</span></button>
+        `
+        }
+        
+        //pull city list fromlocal storage
+        var pullCityList = function() {
+        var fromLocalStorage = JSON.parse(localStorage.getItem("searchTerms"));
+
+        if (fromLocalStorage !== null) {
+        searchTerm = fromLocalStorage;
+        }
+
+    displayCity();
+}
+    }        
+
+
+    
+    
 
 
 //fetch apiUrl
