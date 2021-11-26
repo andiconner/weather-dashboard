@@ -21,4 +21,6 @@ We have to capture a user interaction, form an HTTP request from that interactio
 
 5. click on a city in the search history => current and future conditions for that city
 
+<img width="1560" alt="weather_dashboard_screenshot" src="https://user-images.githubusercontent.com/92004570/143660179-c330be45-0589-4235-ac74-9883d576f3a6.png">
+
 
