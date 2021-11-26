@@ -5,14 +5,34 @@ var submitBtn = document.querySelector('#submit')
 
 
 
-// current weather elements
+
 var citySearchTerm = document.querySelector("#city-search-term")
 var weatherContainerEl = document.querySelector("#weather-container")
 var currentConditionsEl = document.querySelector("#current-conditions")
 var input = document.querySelector('.input_text');
 
 var cardDeckEl = document.querySelector(".card-deck")
+var buttonsEl = document.querySelector("#buttons")
 
+var city =[
+    {
+        id: "city-search-term",
+        Temp: "${city.main.temp}",
+        Wind: "${city.wind.speed}",
+        Humidity: "${city.main.humidity}",
+        UV: '${fiveDayData.current.uvi}',
+    },
+    {
+        id: "card-deck",
+        date: "${moment(fiveDayData.daily[i].dt, 'X').format('MM/DD/YYYY')}",
+        icon: "<img src='http://openweathermap.org/img/wn/${fiveDayData.daily[i].weather.icon}.png'  />",
+        Temp: "{fiveDayData.daily[i].temp.day}",
+        Wind: "${fiveDayData.daily[i].wind_speed}",
+        Humidity: "${fiveDayData.daily[i].humidity}",
+        
+    }
+
+]
 
 
 
@@ -55,7 +75,7 @@ var displayCity = function (city, searchTerm, fiveDayData) {
       <h4 class="date card-title text-light">
         <span>${moment(fiveDayData.daily[i].dt, 'X').format('MM/DD/YYYY')}</span>
       </h4>
-      <img type="png" src='http://openweathermap.org/img/wn/${fiveDayData.daily[i].weather.icon}.png'  />
+      <img src='http://openweathermap.org/img/wn/${fiveDayData.daily[i].weather.icon}.png'  />
       <p id="temp1">Temp:<span>${fiveDayData.daily[i].temp.day}</span></p>
       <p id="wind1">Wind:<span>${fiveDayData.daily[i].wind_speed}</span></p>
       <p id="Humidity1">Humidity:<span>${fiveDayData.daily[i].humidity}</span></p>
@@ -63,10 +83,22 @@ var displayCity = function (city, searchTerm, fiveDayData) {
   </div>
   
     `
-
+             // save history search function and storage in localStorage 
+             localStorage.setItem("searchTerm", JSON.stringify(searchTerm));
+             
+            buttonsEl.innerHTML = "" //need this so it won't repeat
+            
+            buttonsEl.innerHTML = buttonsEl.innerHTML + `
+            <button data-id="2" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block"><span>${city.name}</span></button>
+            <button data-id="3" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block"><span>${city.name}</span></button>
+            <button data-id="4" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block"><span>${city.name}</span></button>
+            <button data-id="5" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block"><span>${city.name}</span></button>
+            `
+            
+        
     }
+}
 
-};
 
 
 //fetch apiUrl
@@ -93,8 +125,5 @@ var getCurrentCity = function (cityname) {
 
 
 searchFormEl.addEventListener("submit", formSubmitHandler);{
-        var cityname_serialized = JSON.stringify(cityname);
-        console.log(cityname_serialized);
-        localStorage.setItem("cityInputEl", "cityname");
-};
-
+     
+}
