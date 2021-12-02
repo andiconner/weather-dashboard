@@ -16,10 +16,31 @@ var input = document.querySelector('.input_text');
 var cardDeckEl = document.querySelector(".card-deck")
 var buttonsEl = document.querySelector("#buttons")
 
-var cityList =[]
-var searchTerms = []
 
+var cityList = []
+    if(localStorage.getItem("cityList")){
+        cityList = JSON.parse(localStorage.getItem("cityList"))
+    }
 
+// function to display the past city search
+function displaySearchedCity () {
+    buttonsEl.innerHTML=""
+    //the middle condition is to STOP the loop (J)
+    for (let i = cityList.length -1, J = 0; J < 4; i--, J++) {
+        
+    buttonsEl.innerHTML=buttonsEl.innerHTML+ `
+    <button data-id="2" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block btn-cities"><span>${cityList[i]}</span></button>
+    `
+    }
+    var btnCities = document.querySelectorAll(".btn-cities")
+    for (let i = 0; i < btnCities.length; i++) {
+       btnCities[i].addEventListener('click', function(){
+           getCurrentCity(this.textContent)
+       })
+        
+    }
+}
+displaySearchedCity()
 
 //function to be executed upon a form submission browser event
 var formSubmitHandler = function (event) {
@@ -69,35 +90,16 @@ var displayCity = function (city, searchTerm, fiveDayData) {
     
     `   
     }         
-
+cityList.push(searchTerm)
     // save history search function and storage in localStorage 
-        localStorage.setItem("searchTerm", searchTerm);
-    
-    
-        buttonsEl.innerHTML=""
-        for (let i = 0; i < searchTerm.length; i++) {
-            
-        buttonsEl.innerHTML=buttonsEl.innerHTML+ `
-        <button data-id="2" type="submit" class="btn d-block btn btn-secondary btn-lg btn-block"><span>${city.name}</span></button>
-        `
-        }
+        localStorage.setItem("cityList", JSON.stringify(cityList))
+        displaySearchedCity() 
         
-        //pull city list fromlocal storage
-        var pullCityList = function() {
-        var fromLocalStorage = JSON.parse(localStorage.getItem("searchTerms"));
-
-        if (fromLocalStorage !== null) {
-        searchTerm = fromLocalStorage;
-        }
 
     displayCity();
-}
+
+
     }        
-
-
-    
-    
-
 
 //fetch apiUrl
 var getCurrentCity = function (cityname) {
